@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { cn } from "@/lib/utils/tailwindMerge/tailwindMerge";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -22,8 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("antialiased", roboto.className)}>{children}</body>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body
+        className={cn(
+          "antialiased min-h-screen bg-slate-200 font-sans",
+          roboto.className
+        )}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
