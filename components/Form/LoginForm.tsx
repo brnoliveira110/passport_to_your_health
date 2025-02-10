@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,12 +14,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import SubmitButton from "../SubmitButton";
 
 const formSchema = z.object({
   userEmail: z.string().email(),
 });
 
 const LoginForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,9 +55,12 @@ const LoginForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-cyan-600">
+          <SubmitButton
+            isLoading={isLoading}
+            className="bg-cyan-600 hover:bg-cyan-800"
+          >
             Entrar
-          </Button>
+          </SubmitButton>
         </form>
       </Form>
     </>

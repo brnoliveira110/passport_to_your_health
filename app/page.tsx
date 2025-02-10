@@ -9,11 +9,11 @@ export default function Home() {
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
           <Image
-            src="/assets/logo/logo.png"
+            src="/assets/images/imageLogin.jpg"
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-40 w-fit mx-auto md:mx-0"
+            className="mb-12 h-40 w-80 mx-auto md:mx-0 rounded-3xl"
           />
           <LoginForm />
           <div className="text-14-regular mt-20 flex justify-between">
@@ -24,7 +24,7 @@ export default function Home() {
         </div>
       </section>
       <Image
-        src="/assets/hero.jpg"
+        src="/assets/images/hero.jpg"
         height={1000}
         width={1000}
         alt="hero"
