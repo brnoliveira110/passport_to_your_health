@@ -25,7 +25,6 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
-import { account } from "@/lib/appwrite.config";
 
 const formSchema = z.object({
   userEmail: z.string().email(),
