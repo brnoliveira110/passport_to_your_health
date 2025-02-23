@@ -1,6 +1,6 @@
 "use client";
 
-import LoginForm from "@/components/Form/LoginForm";
+import { LoginForm } from "@/components/Form/LoginForm";
 import Image from "next/image";
 
 export default function Home() {

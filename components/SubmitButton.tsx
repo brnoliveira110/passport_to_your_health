@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { cn } from "@/lib/utils/tailwindMerge/tailwindMerge";
 
 interface ButttonProps {
-  isLoading: boolean;
+  isLoading?: boolean;
   className?: string;
   children: React.ReactNode;
 }
