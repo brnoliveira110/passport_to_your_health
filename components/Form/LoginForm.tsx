@@ -6,6 +6,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { createUser, loginUser } from "@/lib/actions/user.actions";
+
 import {
   Form,
   FormControl,
@@ -16,7 +18,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import SubmitButton from "../SubmitButton";
-import { createUser, loginUser } from "@/lib/actions/user.actions";
 import {
   Dialog,
   DialogContent,
@@ -28,10 +29,6 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
 
 const formSchema = z.object({
   userEmail: z.string().email(),
-});
-
-const formSchemaOtp = z.object({
-  password: z.string().max(6),
 });
 
 export const LoginForm = () => {
@@ -104,6 +101,10 @@ export const LoginForm = () => {
     </>
   );
 };
+
+const formSchemaOtp = z.object({
+  password: z.string().max(6),
+});
 
 const FormOtp = () => {
   const [isLoading, setIsLoading] = useState(false);
